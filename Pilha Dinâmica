@@ -49,7 +49,6 @@ Objeto pop(PilhaDinamica *p, Objeto obj) {
         p->tamanho--;
         free(aux);
         return (obj);
-
     }
 }
 
@@ -63,10 +62,10 @@ int tamanho(PilhaDinamica *p) {
     return (p->tamanho);
 }
 
-void imprimePilha(PilhaDinamica *pilha) {
+void imprimePilha(PilhaDinamica *p) {
     PtrNoPilha aux;
     printf("Pilha: \n");
-    for (aux = pilha->topo; aux != NULL; aux = aux->prox) {
+    for (aux = p->topo; aux != NULL; aux = aux->prox) {
         printf("|%d| \n", aux->topo.chave);
     }
 }
@@ -97,5 +96,3 @@ int main(int argc, char** argv) {
 
     return (EXIT_SUCCESS);
 }
-
-
