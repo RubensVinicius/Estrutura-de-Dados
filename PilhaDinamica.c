@@ -40,18 +40,6 @@ void push(PilhaDinamica *p, Objeto X) {
     p->tamanho++;
 }
 
-/*Objeto pop(PilhaDinamica *p, Objeto obj) {
-    if (estaVazia(p) == false) {
-        PtrNoPilha aux;
-        aux->topo = p->topo->topo;
-        aux->prox= p->topo->prox;
-        p->topo = p->topo->prox;
-        free(aux);
-        p->tamanho--;
-        return (obj);
-    }
-}*/
-
 Objeto pop(PilhaDinamica *p, Objeto obj) {
     if (estaVazia(p) == false) {
         PtrNoPilha aux;
@@ -112,3 +100,4 @@ int main(int argc, char** argv) {
 
     return (EXIT_SUCCESS);
 }
+
