@@ -40,16 +40,15 @@ void push(PilhaDinamica *p, Objeto X) {
     p->tamanho++;
 }
 
-Objeto pop(PilhaDinamica *p, Objeto obj) {
-    if (estaVazia(p) == false) {
-        PtrNoPilha aux;
-        aux->topo = p->topo->topo;
-        aux->prox= p->topo->prox;
-        p->topo = p->topo->prox;
-        free(aux);
-        p->tamanho--;
-        return (obj);
-    }
+void pop(PilhaDinamica *p, Objeto *obj) {
+  if(estaVazia(p) == false) {     
+    *obj = p->topo->topo;
+    PtrNoPilha aux;
+    aux = p->topo;
+    p->topo = p->topo->prox;
+    free(aux);
+    p->tamanho--;
+  }
 }
 
 int topo(PilhaDinamica *p) {
@@ -92,7 +91,7 @@ int main(int argc, char** argv) {
     imprimePilha(&Pilha);
     printf("Tamanho: %d\n", tamanho(&Pilha));
     printf("Topo: %d\n", topo(&Pilha));
-    pop(&Pilha, obj);
+    pop(&Pilha, &obj);
     imprimePilha(&Pilha);
     printf("Tamanho: %d\n", tamanho(&Pilha));
     printf("Topo: %d\n", topo(&Pilha));
