@@ -43,11 +43,11 @@ void push(PilhaDinamica *p, Objeto X) {
 Objeto pop(PilhaDinamica *p, Objeto obj) {
     if (estaVazia(p) == false) {
         PtrNoPilha aux;
-        aux->topo.chave = p->topo->topo.chave;
-        aux->prox = p->topo;
+        aux->topo = p->topo->topo;
+        aux->prox= p->topo->prox;
         p->topo = p->topo->prox;
-        p->tamanho--;
         free(aux);
+        p->tamanho--;
         return (obj);
     }
 }
@@ -74,7 +74,8 @@ int main(int argc, char** argv) {
     PilhaDinamica Pilha;
     Objeto obj;
     inicia(&Pilha);
-
+    obj.chave = 1;
+    push(&Pilha, obj);
     obj.chave = 2;
     push(&Pilha, obj);
     obj.chave = 3;
@@ -92,6 +93,8 @@ int main(int argc, char** argv) {
     printf("Topo: %d\n", topo(&Pilha));
     pop(&Pilha, obj);
     imprimePilha(&Pilha);
+    printf("Tamanho: %d\n", tamanho(&Pilha));
+    printf("Topo: %d\n", topo(&Pilha));
 
 
     return (EXIT_SUCCESS);
