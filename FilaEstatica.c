@@ -15,9 +15,9 @@ typedef struct {
 } FilaEstatica;
 
 void inicia(FilaEstatica *fila) {
-    fila->fim = -1;
-    fila->tamanho = 0;
     fila->inicio = 0;
+    fila->tamanho = 0;
+    fila->fim = -1;
 }
 
 bool estaVazia(FilaEstatica *fila) {
@@ -96,15 +96,7 @@ int main(int argc, char** argv) {
     enqueue(&Fila, obj);
     obj.chave = 45;
     enqueue(&Fila, obj);
-    obj.chave = 3;
-    enqueue(&Fila, obj);
-    obj.chave = 82;
-    enqueue(&Fila, obj);
-    obj.chave = 5;
-    enqueue(&Fila, obj);
-    obj.chave = 196;
-    enqueue(&Fila, obj);
-    obj.chave = 38;
+    obj.chave = 8;
     enqueue(&Fila, obj);
     imprimeFila(&Fila);
     estadoFila(&Fila);
@@ -114,20 +106,7 @@ int main(int argc, char** argv) {
     dequeue(&Fila);
     imprimeFila(&Fila);
     estadoFila(&Fila);
-    dequeue(&Fila);
-    imprimeFila(&Fila);
-    estadoFila(&Fila);
-    dequeue(&Fila);
-    imprimeFila(&Fila);
-    estadoFila(&Fila);
-    dequeue(&Fila);
-    imprimeFila(&Fila);
-    estadoFila(&Fila);
-    dequeue(&Fila);
-    imprimeFila(&Fila);
-    estadoFila(&Fila);
-    dequeue(&Fila);
-    imprimeFila(&Fila);
+
   
     return (EXIT_SUCCESS);
 }
