@@ -8,7 +8,7 @@ typedef struct {
 
 typedef struct NoFila *PtrNoFila;
 
-typedef struct NoFila{
+typedef struct NoFila {
     Objeto obj;
     PtrNoFila prox;
 } NoFila;
@@ -82,46 +82,47 @@ void estadoFila(FilaDinamica *fila) {
     printf("Início:%d Fim:%d Tamanho:%d\n", inicioFila(fila), fimFila(fila), tamanhoFila(fila));
 }
 
-void imprimeFila(FilaDinamica *fila){
+void imprimeFila(FilaDinamica *fila) {
+    PtrNoFila aux;
     printf("Fila: ");
-    while(fila->inicio != NULL){
-        printf("|%d| ", fila->inicio->obj.chave);
-        fila->inicio = fila->inicio->prox;
+    for (aux = fila->inicio; aux != NULL; aux = aux->prox) {
+        printf("|%d| ", aux->obj.chave);
     }
     printf("\n");
 }
 
 int main(int argc, char** argv) {
-     FilaDinamica Fila;
-     Objeto obj;
-     inicia(&Fila);
+    FilaDinamica Fila;
+    Objeto obj;
+    inicia(&Fila);
 
-     obj.chave = 27;
-     enqueue(&Fila, obj);
-     obj.chave = 45;
-     enqueue(&Fila, obj);
-     obj.chave = 8;
-     enqueue(&Fila, obj);
-     obj.chave = 99;
-     enqueue(&Fila, obj);
-     obj.chave = 35;
-     enqueue(&Fila, obj);
-     imprimeFila(&Fila);
-     estadoFila(&Fila);
-  //   dequeue(&Fila);
- //    imprimeFila(&Fila);
- //    estadoFila(&Fila);
- //    dequeue(&Fila);
- //    imprimeFila(&Fila);
-//     estadoFila(&Fila);
-//     dequeue(&Fila);
-  //   imprimeFila(&Fila);
-  //   estadoFila(&Fila);
- //    dequeue(&Fila);
- //    imprimeFila(&Fila);
-  //   estadoFila(&Fila);
-  //   dequeue(&Fila);
-  //   imprimeFila(&Fila);
+    obj.chave = 27;
+    enqueue(&Fila, obj);
+    obj.chave = 45;
+    enqueue(&Fila, obj);
+    obj.chave = 8;
+    enqueue(&Fila, obj);
+    obj.chave = 99;
+    enqueue(&Fila, obj);
+    obj.chave = 35;
+    enqueue(&Fila, obj);
+    imprimeFila(&Fila);
+    estadoFila(&Fila);
+    dequeue(&Fila);
+    imprimeFila(&Fila);
+    estadoFila(&Fila);
+    dequeue(&Fila);
+    imprimeFila(&Fila);
+    estadoFila(&Fila);
+    dequeue(&Fila);
+    imprimeFila(&Fila);
+    estadoFila(&Fila);
+    imprimeFila(&Fila);
+    estadoFila(&Fila);
+    dequeue(&Fila);
+    imprimeFila(&Fila);
+    dequeue(&Fila);
+    imprimeFila(&Fila);
 
     return (EXIT_SUCCESS);
 }
