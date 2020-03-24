@@ -91,6 +91,13 @@ void imprimeFila(FilaDinamica *fila) {
     printf("\n");
 }
 
+/*void destroiFila(FilaDinamica *fila){
+   PtrNoFila aux;
+    for (aux = fila->inicio; aux != NULL; aux = aux->prox) {
+        free(aux);
+    }
+}*/
+
 int main(int argc, char** argv) {
     FilaDinamica Fila;
     Objeto obj;
@@ -123,6 +130,9 @@ int main(int argc, char** argv) {
     imprimeFila(&Fila);
     dequeue(&Fila);
     imprimeFila(&Fila);
+  //  destroiFila(&Fila);
 
+    
     return (EXIT_SUCCESS);
 }
+
