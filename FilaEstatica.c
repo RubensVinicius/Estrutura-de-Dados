@@ -79,7 +79,7 @@ void estadoFila(FilaEstatica *fila){
 }
 
 void imprimeFila(FilaEstatica *fila) {
-    printf("Fila: {");
+    printf("Fila: { ");
     int n = tamanhoFila(fila);
     for (int i = 0; i < n; i++) {
         int index = (fila->inicio + i) % N;
