@@ -45,21 +45,21 @@ void enqueue(FilaEstatica *fila, Objeto obj) {
         fila->fim++;
         fila->vetor[fila->fim] = obj;
         fila->tamanho++;
-        printf("Empilha: %d\n", obj);
+        printf("Empilha: %d\n", obj.chave);
     }
 }
 
 Objeto dequeue(FilaEstatica *fila) {
+     Objeto aux;
     if (estaVazia(fila) == true) {
         printf("Fila vazia! Insira para remover.\n");}
     else{
-        Objeto aux;
         aux = fila->vetor[fila->inicio];
         fila->inicio++;
         fila->tamanho--;
-        printf("Desempilha: %d\n", aux);
-        return (aux);
+        printf("Desempilha: %d\n", aux.chave);
     }
+    return (aux);
 }
 
 Objeto inicioFila(FilaEstatica *fila) {
@@ -75,15 +75,17 @@ int tamanhoFila(FilaEstatica *fila) {
 }
 
 void estadoFila(FilaEstatica *fila){
-    printf("Início:%d Fim:%d Tamanho:%d\n", inicioFila(fila), fimFila(fila), tamanhoFila(fila) );
+    printf("Início:%d Fim:%d Tamanho:%d\n", inicioFila(fila).chave, fimFila(fila).chave, tamanhoFila(fila) );
 }
 
 void imprimeFila(FilaEstatica *fila) {
-    printf("Fila: ");
-    for (int i = 0; i < fila->tamanho; i++) {
-        printf("|%d| ", fila->vetor[i]);
+    printf("Fila: {");
+    int n = tamanhoFila(fila);
+    for (int i = 0; i < n; i++) {
+        int index = (fila->inicio + i) % N;
+        printf("|%d| ", fila->vetor[index].chave);
     }
-    printf("\n");
+    printf("}\n");
 }
 
 int main(int argc, char** argv) {
